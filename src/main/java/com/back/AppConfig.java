@@ -1,17 +1,17 @@
 package com.back;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
 
 @Configuration
 public class AppConfig {
-    @Autowired
-    @Lazy
-    private AppConfig self;
+    private final AppConfig self;
+
+    public AppConfig(AppConfig appConfig) {
+        this.self = appConfig;
+    }
 
     @Bean
     int version() {
