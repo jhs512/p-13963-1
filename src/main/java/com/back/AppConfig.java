@@ -4,12 +4,13 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 
 @Configuration
 public class AppConfig {
     private final AppConfig self;
 
-    public AppConfig(AppConfig appConfig) {
+    public AppConfig(@Lazy AppConfig appConfig) {
         this.self = appConfig;
     }
 
